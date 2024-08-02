@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('./assets/cool-background.png'); /* Path to your background image */
+  background-size: cover; /* Cover the entire background */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
+  backdrop-filter: blur(10px); /* Apply blur to the background */
+  border-radius: 20px; /* Different border-radius for each corner */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  padding: 10px;
+  margin-right: 10px;
+  width: 300px;
+  height: 40px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
+  backdrop-filter: blur(10px); /* Apply blur to the background */
+   /* Text color black */
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(0, 0, 0);
+  outline: none; 
+}
+
+.search-btn {
+  padding: 10px 20px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
+  backdrop-filter: blur(10px); /* Apply blur to the background */
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  outline: none; 
+}
+
+button:hover {
+  border-color: black; /* Black border on hover */
+  background: rgba(255, 255, 255, 0.4);
+}
+
+table {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+  /* border-collapse: collapse; */
+  border: 1px solid #000000;
+  border-radius: 10px;
+  border-spacing:0px;
+}
+
+thead{
+  border: 1px solid #000000;
+  border-radius: 20px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  color: black;
+  font-family: "Josefin Sans", sans-serif;
+  font-style: normal;
+}
+
+.website-name {
+  background-color: #3498db;
+  color: white;
+  border-radius: 10px 0 0 0px;
+}
+
+.price {
+  background-color: #3498db;
+  color: white;
+  border-radius: 0 10px 0px 0;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin-top: 20px;
+}
+
+.error-message{
+  color: black;
+  font-family: "Josefin Sans", sans-serif;
+  font-style: normal;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
