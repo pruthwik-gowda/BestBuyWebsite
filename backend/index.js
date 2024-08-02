@@ -5,11 +5,7 @@ const { scrapeAmazon, scrapeFlipkart } = require('./scrape');
 const app = express();
 const PORT = 5000;
 
-app.use(cors({
-    origin: ["https://best-buy-website-1.vercel.app"],
-    methods: ["POST", "GET"],
-    credentials: true
-}));
+app.use(cors());
 app.use(express.json());
 
 app.post('/api/scrape', async (req, res) => {
