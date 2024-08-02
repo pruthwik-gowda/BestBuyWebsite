@@ -6,7 +6,7 @@ const app = express();
 const PORT = 5000;
 
 app.use(cors({
-    origin: ["https://best-buy-website-1.vercel.app/"],
+    origin: ["https://best-buy-website-1.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true
 }));
