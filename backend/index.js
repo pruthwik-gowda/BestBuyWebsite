@@ -8,6 +8,8 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
+
+
 app.post('/api/scrape', async (req, res) => {
     const { productName } = req.body;
 
