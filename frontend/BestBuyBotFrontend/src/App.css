@@ -37,7 +37,7 @@ form {
   padding: 10px;
   margin-right: 10px;
   width: 300px;
-  height: 40px;
+  height: 40.5px;
   border: 1px solid #000000;
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
@@ -55,7 +55,7 @@ form {
   border: 1px solid #000000;
   border-radius: 5px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
+  background: rgba(0, 0, 0, 0.2); /* Slightly transparent background */
   backdrop-filter: blur(10px); /* Apply blur to the background */
   font-family: "Poetsen One", sans-serif;
   font-weight: 400;
@@ -64,6 +64,14 @@ form {
   cursor: pointer;
   transition: border-color 0.3s ease;
   outline: none; 
+}
+
+button{
+  outline: none;
+}
+
+.search-btn:focus {
+  outline: none; /* Ensure no outline on focus */
 }
 
 button:hover {
