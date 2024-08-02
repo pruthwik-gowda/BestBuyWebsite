@@ -15,7 +15,7 @@ const App = () => {
     setLoading(true);
     setResults([]);
     try {
-      const response = await axios.post('http://localhost:5000/api/scrape?Content-Type=application/json', { productName });
+      const response = await axios.post('http://localhost:5000/api/scrape', { productName });
       setResults(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
