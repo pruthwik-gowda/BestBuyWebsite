@@ -1,0 +1,2 @@
+to run backend - node index.js
+to run frontend - npm run dev

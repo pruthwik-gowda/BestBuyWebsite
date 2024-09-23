@@ -108,6 +108,12 @@ th, td {
   border-radius: 10px 0 0 0px;
 }
 
+.title {
+  background-color: #3498db;
+  color: white;
+  border-radius: 0px 0 0 0px;
+}
+
 .price {
   background-color: #3498db;
   color: white;

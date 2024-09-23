@@ -40,6 +40,7 @@ const scrapeAmazon = async (productName) => {
         let promptPrice = `this is the previous query - "${prompt}" . You returned the title as "${title}". Now i want you to return the PRICE of the the product you returned as the answer for the previous query. Not the title.`
         price = await run(promptPrice);
         //console.log(`${title} --- ${price}`)
+        console.log(`${title} - ${price}`);
         return { website: 'Amazon', title, price: `${price} INR` };
 
 
@@ -120,6 +121,7 @@ const scrapeFlipkart = async (productName) => {
         price = await run(promptPrice);
         //console.log(`${title} --- ${price}`)
         price = price.replace(/₹/g, '');
+        console.log(`${title} - ${price}`);
         return { website: 'Flipkart', title, price: `${price} INR` };
         
 

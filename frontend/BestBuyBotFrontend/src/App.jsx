@@ -47,6 +47,7 @@ const App = () => {
           <thead>
             <tr>
               <th className='website-name'>Website</th>
+              <th className='title'>Title</th>
               <th className='price'>Price</th>
             </tr>
           </thead>
@@ -54,6 +55,7 @@ const App = () => {
             {results.map((result, index) => (
               <tr key={index}>
                 <td>{result.website}</td>
+                <td>{result.title}</td>
                 <td>{result.price}</td>
               </tr>
             ))}
