@@ -6,7 +6,8 @@ This is the loading page
 
 ![image](https://github.com/user-attachments/assets/842079d7-5a30-4bf5-b511-42126b8f053e)
 
-This is the result for the product "iPhone 12 128"
+This is the result for the product "iPhone 15 pro max 512 gb"
 
-![image](https://github.com/user-attachments/assets/14240c07-c028-4b3c-a29b-905b96c5c19d)
+![image](https://github.com/user-attachments/assets/7205aeec-8125-4574-a455-7f49a0109f30)
+
 
