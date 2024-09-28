@@ -85,7 +85,7 @@ table {
   max-width: 600px;
   /* border-collapse: collapse; */
   border: 1px solid #000000;
-  border-radius: 10px;
+  border-radius:11px;
   border-spacing:0px;
 }
 
@@ -100,7 +100,17 @@ th, td {
   color: black;
   font-family: "Josefin Sans", sans-serif;
   font-style: normal;
+  border: 1px solid #000000;
 }
+
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 9px; /* Bottom-left corner */
+}
+
+table tr:last-child td:last-child {
+  border-radius: 0 0 9px 0; /* Bottom-right corner */
+}
+
 
 .website-name {
   background-color: #3498db;
@@ -118,6 +128,7 @@ th, td {
   background-color: #3498db;
   color: white;
   border-radius: 0 10px 0px 0;
+  width: 150px; 
 }
 
 .loader {

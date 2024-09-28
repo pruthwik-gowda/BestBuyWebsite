@@ -10,8 +10,15 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event) => { // we used event to use preventDefault
     event.preventDefault();
+
+    // In JavaScript, the preventDefault() method is used to stop the default action of an event from occurring. 
+    // For example, in the context of an HTML form, the default behavior when a form is submitted is to reload the page.
+    // In your handleSubmit function, event.preventDefault(); prevents the form submission from reloading the page,
+    // allowing you to handle the form data asynchronously with your axios.post() request.
+    // Without preventDefault(), the browser would reload, and you wouldn't be able to execute the asynchronous logic to send data to the server and display results dynamically.
+
     setLoading(true);
     setResults([]);
     try {
@@ -39,7 +46,6 @@ const App = () => {
         />
         <button type="submit" className='search-btn'>Search</button>
       </form>
-      {console.log(results)}
       {loading ? 
       <img src={loader} alt="" />
       : ( results.length > 0 ?

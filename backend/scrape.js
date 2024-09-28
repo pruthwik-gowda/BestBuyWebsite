@@ -39,6 +39,7 @@ const scrapeAmazon = async (productName) => {
         
         let promptPrice = `this is the previous query - "${prompt}" . You returned the title as "${title}". Now i want you to return the PRICE of the the product you returned as the answer for the previous query. Not the title.`
         price = await run(promptPrice);
+
         //console.log(`${title} --- ${price}`)
         console.log(`${title} - ${price}`);
         return { website: 'Amazon', title, price: `${price} INR` };
@@ -57,13 +58,13 @@ const scrapeFlipkart = async (productName) => {
     //await driver.findElement(By.xpath('//button[contains(text(),"✕")]')).click(); // Close the login popup
     await driver.findElement(By.name('q')).sendKeys(productName, Key.RETURN);
 
-
+    // fetching the first batch of all the products, usually contains 20-25 products (depends on website)
     try {
         let products;
         try{
         await driver.wait(until.elementLocated(By.css('.slAVV4')), 1000);
         products = await driver.findElements(By.css('.slAVV4'));
-        console.log(products.length)
+        //console.log(products.length)
         }
         catch(err){
             try{
@@ -78,13 +79,11 @@ const scrapeFlipkart = async (productName) => {
             }
             
         }
-        
-
-        let bestMatch = null;
 
 
         let prompt = `I have searched for a product in the search bar using the keys "${productName}". I want you to return the most similar product's title of all the product titles and corresponding price that i'll send u in this message. The products are will be seperated by "------" and the title has with it it's price which his seperated from the title by "---". Here's an example pf how this looks ------ product1-title --- product1-price ------ product2-title --- product2-price ------ . Anthing (other than the price) between these lines (------ and ---) is a title....be it characters, be it anything. Even trailing "..." is considered a title, so return that as well. These are the titles ------ `
 
+        // Now that we have the list of products, add the title and price of each product to the prompt
         for (let product of products) {
             try {
                 let title;
@@ -121,7 +120,7 @@ const scrapeFlipkart = async (productName) => {
         price = await run(promptPrice);
         //console.log(`${title} --- ${price}`)
         price = price.replace(/₹/g, '');
-        console.log(`${title} - ${price}`);
+        //console.log(`${title} - ${price}`);
         return { website: 'Flipkart', title, price: `${price} INR` };
         
 
