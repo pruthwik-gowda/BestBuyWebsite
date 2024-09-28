@@ -5,6 +5,8 @@ const { scrapeAmazon, scrapeFlipkart } = require('./scrape');
 const app = express();
 const PORT = 5000;
 
+
+
 app.use(cors({
     "options":"*",
 }));
