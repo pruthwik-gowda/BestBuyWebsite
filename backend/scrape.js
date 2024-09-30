@@ -3,7 +3,15 @@ const chrome = require('selenium-webdriver/chrome');
 const run = require('./runPrompt'); // Ensure runPrompt.js contains your GoogleGenerativeAI logic
 
 const scrapeAmazon = async (productName) => {
-    let driver = await new Builder().forBrowser('chrome').build();
+    let options = new chrome.Options();
+    options.addArguments('--headless=new'); // Enable headless mode
+    //options.addArguments('--disable-gpu');
+    // options.addArguments('--no-sandbox'); //for linux only
+    
+    let driver = await new Builder()
+        .forBrowser('chrome')
+        .setChromeOptions(options) // Apply headless options
+        .build();
     await driver.get('https://www.amazon.in/');
     await driver.findElement(By.id('twotabsearchtextbox')).sendKeys(productName, Key.RETURN);
 
@@ -53,7 +61,15 @@ const scrapeAmazon = async (productName) => {
 }
 
 const scrapeFlipkart = async (productName) => {
-    let driver = await new Builder().forBrowser('chrome').build();
+    let options = new chrome.Options();
+    options.addArguments('--headless=new'); // Enable headless mode
+    //options.addArguments('--disable-gpu');
+    // options.addArguments('--no-sandbox'); // for linux only
+    
+    let driver = await new Builder()
+        .forBrowser('chrome')
+        .setChromeOptions(options) // Apply headless options
+        .build();
     await driver.get('https://www.flipkart.com/');
     //await driver.findElement(By.xpath('//button[contains(text(),"✕")]')).click(); // Close the login popup
     await driver.findElement(By.name('q')).sendKeys(productName, Key.RETURN);

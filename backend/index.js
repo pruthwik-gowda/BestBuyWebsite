@@ -18,8 +18,13 @@ app.post('/api/scrape', async (req, res) => {
     const { productName } = req.body;
 
     try {
-        const amazonResult = await scrapeAmazon(productName);
-        const flipkartResult = await scrapeFlipkart(productName);
+        const [amazonResult, flipkartResult] = await Promise.all([
+            scrapeAmazon(productName), 
+            scrapeFlipkart(productName)
+        ]); // this took 19 seconds to give a response
+
+        // const amazonResult = await scrapeAmazon(productName);
+        // const flipkartResult = await scrapeFlipkart(productName); //this took 34 seconds
 
         const results = [];
         if (amazonResult) results.push(amazonResult);
