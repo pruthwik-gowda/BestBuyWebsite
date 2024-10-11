@@ -148,11 +148,25 @@ const scrapeFlipkart = async (productName) => {
 }
 
 const scrapeCroma = async (productName) => {
-    let driver = await new Builder().forBrowser('chrome').build();
+    // let options = new chrome.Options();
+    // options.addArguments('--headless=new'); // Enable headless mode
+    // //options.addArguments('--disable-gpu');
+    // // options.addArguments('--no-sandbox'); // for linux only
     
-
-    await driver.get('https://www.croma.com/');
-    await driver.findElement(By.id('searchV2')).sendKeys(productName, Key.RETURN);
+    // let driver = await new Builder()
+    //     .forBrowser('chrome')
+    //     .setChromeOptions(options) // Apply headless options
+    //     .build();
+    
+    let driver = await new Builder().forBrowser('chrome').build();
+    try{
+        await driver.get('https://www.croma.com/');
+        await driver.findElement(By.id('searchV2')).sendKeys(productName, Key.RETURN);
+    }
+    catch(err){
+        return null;
+    }
+    
 
     // fetching the first batch of all the products, usually contains 20-25 products (depends on website)
     try {
@@ -191,6 +205,7 @@ const scrapeCroma = async (productName) => {
 
     } catch (err) {
         console.error('Error finding Croma price:', err);
+        return null;
     } finally {
         await driver.quit();
     }
