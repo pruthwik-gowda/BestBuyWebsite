@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const { scrapeAmazon, scrapeFlipkart, scrapeCroma } = require('./scrape');
+const { scrapeAmazon, scrapeFlipkart, scrapeCroma, scrapeReliance } = require('./scrape');
 
 const app = express();
 const PORT = 5000;
@@ -18,10 +18,11 @@ app.post('/api/scrape', async (req, res) => {
     const { productName } = req.body;
 
     try {
-        const [amazonResult, flipkartResult, cromaResult] = await Promise.all([
+        const [amazonResult, flipkartResult, cromaResult, relianceResult] = await Promise.all([
             scrapeAmazon(productName), 
             scrapeFlipkart(productName),
-            scrapeCroma(productName)
+            scrapeCroma(productName),
+            scrapeReliance(productName)
         ]); // this took 19 seconds to give a response
 
         // const amazonResult = await scrapeAmazon(productName);
@@ -32,6 +33,7 @@ app.post('/api/scrape', async (req, res) => {
         if (amazonResult) results.push(amazonResult);
         if (flipkartResult) results.push(flipkartResult);
         if (cromaResult) results.push(cromaResult);
+        if (relianceResult) results.push(relianceResult);
         console.log(results);
 
         res.json(results);
