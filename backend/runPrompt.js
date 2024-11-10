@@ -1,8 +1,8 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const { API_KEY } = require('./config');
+require('dotenv').config();
 
 
-const genAI = new GoogleGenerativeAI(API_KEY);
+const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
 async function run(prompt) {
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
