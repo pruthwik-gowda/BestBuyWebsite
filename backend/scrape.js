@@ -4,7 +4,7 @@ const run = require('./runPrompt'); // Ensure runPrompt.js contains your GoogleG
 
 const scrapeAmazon = async (productName) => {
     let options = new chrome.Options();
-    options.addArguments('--headless=new'); // Enable headless mode
+    //options.addArguments('--headless=new'); // Enable headless mode
     //options.addArguments('--disable-gpu');
     // options.addArguments('--no-sandbox'); //for linux only
     
@@ -17,7 +17,7 @@ const scrapeAmazon = async (productName) => {
 
 
     try {
-        await driver.wait(until.elementLocated(By.css('.s-main-slot .s-result-item .s-card-container')), 20000);
+        await driver.wait(until.elementLocated(By.css('.s-main-slot .s-result-item .s-card-container')), 2000);
         let products = await driver.findElements(By.css('.s-main-slot .s-result-item .s-card-container'));
 
         let bestMatch = null;
@@ -151,7 +151,7 @@ const scrapeFlipkart = async (productName) => {
 
 const scrapeCroma = async (productName) => {
     // let options = new chrome.Options();
-    // options.addArguments('--headless=new'); // Enable headless mode
+    //options.addArguments('--headless=new'); // Enable headless mode
     // //options.addArguments('--disable-gpu');
     // // options.addArguments('--no-sandbox'); // for linux only
     
